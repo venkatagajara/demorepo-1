@@ -61,6 +61,12 @@
 </snapshotRepository>
 </distributionManagement>
   </distributionManagement> -->
+<distributionManagement>
+   <snapshotRepository>
+      <id>nexusdemo-snapshot</id>
+      <url>http://localhost:8081/repository/nexusdemo-snapshot/</url>
+   </snapshotRepository>
+</distributionManagement>
 
   <dependencies>
     <dependency>

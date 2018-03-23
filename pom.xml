@@ -28,7 +28,8 @@
   </parent> 	-->
 
   <groupId>maven-org.mybatis</groupId>
-  <version>maven-6.0.2-SNAPSHOT</version>
+  <version>${project.version}</version>
+  <!--version>maven-6.0.3-SNAPSHOT</version-->
   <artifactId>maven-jpetstore</artifactId>
   <packaging>war</packaging>
 
@@ -62,6 +63,10 @@
 </distributionManagement>
   </distributionManagement> -->
 <distributionManagement>
+	<repository>
+     <id>nexusdemo-release</id>
+     <url>http://localhost:8081/repository/nexusdemo-release/</url>
+    </repository>
    <snapshotRepository>
       <id>nexusdemo-snapshot</id>
       <url>http://localhost:8081/repository/nexusdemo-snapshot/</url>

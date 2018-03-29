@@ -23,19 +23,19 @@ pipeline {
 	        }
 	        stage('package') { 
 	            steps {
-	               bat 'mvn package' // -Dproject.version=${project.version}' 
+	               bat "'mvn package' -Dmaven.test.skip=true"
 	            }
 	        }
 		     stage('sonar') { 
 	            steps {
-	               bat 'mvn sonar:sonar' 
+	               bat "'mvn sonar:sonar' -Dmaven.test.skip=true"
 	            }
 	        }
 		    
 		    
 		     stage('Deploy') { 
 	            steps {
-	               bat 'mvn deploy' // -Dproject.version=${project.version}' 
+	               bat "'mvn deploy' -Dmaven.test.skip=true" // -Dproject.version=${project.version}' 
 	            }
 	        }
 		    

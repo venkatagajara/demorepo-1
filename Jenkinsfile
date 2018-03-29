@@ -26,13 +26,6 @@ pipeline {
 	               bat 'mvn package' // -Dproject.version=${project.version}' 
 	            }
 	        }
-		    
-		     stage('Deploy') { 
-	            steps {
-	               bat 'mvn deploy' // -Dproject.version=${project.version}' 
-	            }
-	        }
-		    
 		     stage('sonar') { 
 	            steps {
 	               bat 'mvn sonar:sonar' // -Dproject.version=${project.version}' 
@@ -40,6 +33,13 @@ pipeline {
 	        }
 		    
 		    
+		     stage('Deploy') { 
+	            steps {
+	               bat 'mvn deploy' // -Dproject.version=${project.version}' 
+	            }
+	        }
+		    
+		    		    
 		    
 		   
 		    

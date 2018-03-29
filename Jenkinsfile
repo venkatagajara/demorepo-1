@@ -33,8 +33,8 @@ pipeline {
           '-Dsonar.projectName = Demo' +
           '-Dsonar.projectVersion = 2.0 ' +
           '-Dsonar.language=java ' +
-          '-Dsonar.sources = C:\Users\murugbav\.jenkins\workspace\Demo_pipeline\src ' +
-          '-Dsonar.java.binaries =C:\Users\murugbav\.jenkins\workspace\Demo_pipeline\target\classes'
+          '-Dsonar.sources = C:/Users/murugbav/.jenkins/workspace/Demo_pipeline/src ' +
+          '-Dsonar.java.binaries =C:/Users/murugbav/.jenkins/workspace/Demo_pipeline/target/classes'
 
 	            }
 	        }

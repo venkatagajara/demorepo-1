@@ -3,6 +3,10 @@ pipeline {
 	       //tools {
 	              //maven 'Maven-3.5.3'
 	       //}
+	
+	  parameters {
+        string(defaultValue: true, description: '', name: 'version')
+    }
 	    stages {
 	       
 	           
@@ -12,7 +16,7 @@ pipeline {
 	                 
 	                  withMaven(maven : 'Maven-3.5.3') {
 	                  
-	                  bat 'mvn compile' //-Dproject.version=${project.version}'
+				  bat 'mvn compile -Dversion=${version}' //-Dproject.version=${project.version}'
 	                  }
 	            }
 	        }

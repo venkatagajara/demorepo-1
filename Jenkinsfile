@@ -33,6 +33,16 @@ pipeline {
 	            }
 	        }
 		    
+		     stage('sonar') { 
+	            steps {
+	               bat 'mvn sonar:sonar' // -Dproject.version=${project.version}' 
+	            }
+	        }
+		    
+		    
+		    
+		   
+		    
 	    }
 	}
 

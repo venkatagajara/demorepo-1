@@ -26,6 +26,13 @@ pipeline {
 	               bat 'mvn package' // -Dproject.version=${project.version}' 
 	            }
 	        }
+		    
+		     stage('Deploy') { 
+	            steps {
+	               bat 'mvn deploy' // -Dproject.version=${project.version}' 
+	            }
+	        }
+		    
 	    }
 	}
 

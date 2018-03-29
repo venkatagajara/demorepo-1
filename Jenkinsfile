@@ -12,18 +12,18 @@ pipeline {
 	                 
 	                  withMaven(maven : 'Maven-3.5.3') {
 	                  
-	                  bat 'mvn compile'
+	                  bat 'mvn compile -Dproject.version=${project.version}'
 	                  }
 	            }
 	        }
 	        stage('Test') { 
 	            steps {
-	               bat 'mvn test'
+	               bat 'mvn test -Dproject.version=${project.version}'
 	            }
 	        }
 	        stage('package') { 
 	            steps {
-	               bat 'mvn package' 
+	               bat 'mvn package -Dproject.version=${project.version}' 
 	            }
 	        }
 	    }

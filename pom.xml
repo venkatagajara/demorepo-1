@@ -28,8 +28,8 @@
   </parent> 	-->
 
   <groupId>maven-org.mybatis</groupId>
-  <version>${project.version}</version>
-  <!--version>maven-6.0.3-SNAPSHOT</version-->
+  <!--version>${project.version}</version-->
+  <version>maven-6.0.3-SNAPSHOT</version>
   <artifactId>maven-jpetstore</artifactId>
   <packaging>war</packaging>
 

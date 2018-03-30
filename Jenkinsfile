@@ -16,7 +16,7 @@ pipeline {
 	                  
 	                 
 	                  withMaven(maven : 'Maven-3.5.3') {
-	                          echo "${params.version}"
+	                         // echo "${params.version}"
 				 // bat 'mvn compile -Dparams.version=%params.version%' 
 				  bat 'mvn compile -Dparams.version=%params.version%'
 				  
@@ -35,14 +35,14 @@ pipeline {
 	        }
 		     stage('sonar') { 
 	            steps {
-	               bat 'mvn sonar:sonar -Dmaven.test.skip=true'
+	               bat 'mvn sonar:sonar -Dmaven.test.skip=true -Dparams.version=%params.version%'
 	            }
 	        }
 		    
 		    
 		     stage('Deploy') { 
 	            steps {
-	               bat 'mvn deploy -Dmaven.test.skip=true' 
+	               bat 'mvn deploy -Dmaven.test.skip=true -Dparams.version=%params.version%' 
 	            }
 	        }
 		    

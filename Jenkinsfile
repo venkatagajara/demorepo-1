@@ -5,7 +5,7 @@ pipeline {
 	       //}
 	
 	  parameters {
-        string(defaultValue: "1.9-SNAPSHOT", description: '', name: 'version')
+        string(defaultValue: '', description: '', name: 'version')
 		  
     }
 	    stages {
@@ -17,19 +17,19 @@ pipeline {
 	                 
 	                  withMaven(maven : 'Maven-3.5.3') {
 	                  
-				  bat 'mvn compile -Dversion=${params.version}' //-Dproject.version=${project.version}'
+				  bat 'mvn compile -Dversion="${params.version}"' 
 				 // echo "${params.version}"
 	                  }
 	            }
 	        }
 	        stage('Test') { 
 	            steps {
-	               bat 'mvn test' // -Dproject.version=${project.version}'
+	               bat 'mvn test' 
 	            }
 	        }
 	        stage('package') { 
 	            steps {
-	               bat 'mvn package -Dmaven.test.skip=true -Dversion=${params.version}'
+	               bat 'mvn package -Dmaven.test.skip=true -Dversion="${params.version}"'
 	            }
 	        }
 		     stage('sonar') { 
@@ -41,7 +41,7 @@ pipeline {
 		    
 		     stage('Deploy') { 
 	            steps {
-	               bat 'mvn deploy -Dmaven.test.skip=true' // -Dproject.version=${project.version}' 
+	               bat 'mvn deploy -Dmaven.test.skip=true' 
 	            }
 	        }
 		    

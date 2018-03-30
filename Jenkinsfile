@@ -17,7 +17,7 @@ pipeline {
 	                 
 	                  withMaven(maven : 'Maven-3.5.3') {
 	                          echo "${params.version}"
-				  bat 'mvn compile -Dversion=${params.version}' 
+				  bat 'mvn compile -Dversion="${params.version}"' 
 				  
 	                  }
 	            }

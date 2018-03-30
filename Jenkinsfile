@@ -5,7 +5,7 @@ pipeline {
 	       //}
 	
 	  parameters {
-        string(defaultValue: true, description: '', name: 'version')
+        string(defaultValue: "1.9-SNAPSHOT", description: '', name: 'version')
 		  
     }
 	    stages {

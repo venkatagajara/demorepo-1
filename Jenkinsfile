@@ -25,7 +25,7 @@ pipeline {
 	        }
 	        stage('Test') { 
 	            steps {
-	               bat 'mvn test' 
+	               bat 'mvn test -Dparams.version=%params.version%' 
 	            }
 	        }
 	        stage('package') { 

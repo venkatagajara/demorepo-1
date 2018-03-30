@@ -17,8 +17,8 @@ pipeline {
 	                 
 	                  withMaven(maven : 'Maven-3.5.3') {
 	                  
-				  bat 'mvn compile -Dversion=${version}' //-Dproject.version=${project.version}'
-				  echo "${params.version}"
+				  bat 'mvn compile -Dversion=${params.version}' //-Dproject.version=${project.version}'
+				 // echo "${params.version}"
 	                  }
 	            }
 	        }
@@ -29,7 +29,7 @@ pipeline {
 	        }
 	        stage('package') { 
 	            steps {
-	               bat 'mvn package -Dmaven.test.skip=true'
+	               bat 'mvn package -Dmaven.test.skip=true -Dversion=${params.version}'
 	            }
 	        }
 		     stage('sonar') { 

@@ -17,32 +17,36 @@ pipeline {
 	                 
 	                  withMaven(maven : 'Maven-3.5.3') {
 	                         echo "${params.version}"
-				 // bat 'mvn compile -Dparams.version=%params.version%' 
-				  bat 'mvn compile -Dparams.version=%params.version%'
+				 sh 'mvn compile'
+				 // bat 'mvn compile -Dparams.version=%params.version%'
 				  
 	                  }
 	            }
 	        }
 	        stage('Test') { 
 	            steps {
-	               bat 'mvn test -Dparams.version=%params.version%' 
+	               sh 'mvn test'
+			    //bat 'mvn test -Dparams.version=%params.version%' 
 	            }
 	        }
 	        stage('package') { 
 	            steps {
-	               bat 'mvn package -Dmaven.test.skip=true -Dparams.version=%params.version%'
+	              // bat 'mvn package -Dmaven.test.skip=true -Dparams.version=%params.version%'
+			    sh 'mvn package'
 	            }
 	        }
 		     stage('sonar') { 
 	            steps {
-	               bat 'mvn sonar:sonar -Dmaven.test.skip=true -Dparams.version=%params.version%'
+	              // bat 'mvn sonar:sonar -Dmaven.test.skip=true -Dparams.version=%params.version%'
+			    sh 'mvn sonar:sonar'
 	            }
 	        }
 		    
 		    
 		     stage('Deploy') { 
 	            steps {
-	               bat 'mvn deploy -Dmaven.test.skip=true -Dparams.version=%params.version%' 
+			    sh 'mvn deploy'
+	               //bat 'mvn deploy -Dmaven.test.skip=true -Dparams.version=%params.version%' 
 	            }
 	        }
 		    

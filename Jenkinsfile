@@ -35,12 +35,12 @@ pipeline {
 			    sh 'mvn package -Dparams.version=${params.version}'
 	            }
 	        }
-		     stage('sonar') { 
-	            steps {
+		    // stage('sonar') { 
+	            //steps {
 	              // bat 'mvn sonar:sonar -Dmaven.test.skip=true -Dparams.version=%params.version%'
 			  //  sh 'mvn sonar:sonar'
-	            }
-	        }
+	            //}
+	        //}
 		    
 		    
 		     stage('Deploy') { 

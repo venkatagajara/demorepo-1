@@ -4,10 +4,10 @@ pipeline {
 	              //maven 'Maven-3.5.3'
 	       //}
 	
-	  parameters {
-        string(defaultValue: '', description: '', name: 'version')
+	//  parameters {
+       // string(defaultValue: '', description: '', name: 'version')
 		  
-    }
+  //  }
 	    stages {
 	       
 	           
@@ -17,7 +17,8 @@ pipeline {
 	                 
 	                  withMaven(maven : 'Maven-3.5.3') {
 	                         echo "${params.version}"
-				  sh 'mvn compile -Dparams.version="${params.version}"'
+				 // sh 'mvn compile -Dparams.version="${params.version}"'
+				  sh 'mvn compile'
 				 // bat 'mvn compile -Dparams.version=%params.version%'
 				  
 	                  }
@@ -25,27 +26,27 @@ pipeline {
 	        }
 	        stage('Test') { 
 	            steps {
-	               sh 'mvn test -Dparams.version=test1'
+	               sh 'mvn test'
 			    //bat 'mvn test -Dparams.version=%params.version%' 
 	            }
 	        }
 	        stage('package') { 
 	            steps {
 	              // bat 'mvn package -Dmaven.test.skip=true -Dparams.version=%params.version%'
-			    sh 'mvn package -Dparams.version=${params.version}'
+			    sh 'mvn package'
 	            }
 	        }
-		    // stage('sonar') { 
-	            //steps {
+		     stage('sonar') { 
+	            steps {
 	              // bat 'mvn sonar:sonar -Dmaven.test.skip=true -Dparams.version=%params.version%'
-			  //  sh 'mvn sonar:sonar'
-	            //}
-	        //}
+			   sh 'mvn sonar:sonar'
+	            }
+	        }
 		    
 		    
 		     stage('Deploy') { 
 	            steps {
-			    sh 'mvn deploy -Dparams.version=${params.version}'
+			    sh 'mvn deploy'
 	               //bat 'mvn deploy -Dmaven.test.skip=true -Dparams.version=%params.version%' 
 	            }
 	        }

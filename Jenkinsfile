@@ -17,7 +17,7 @@ pipeline {
 	                 
 	                  withMaven(maven : 'Maven-3.5.3') {
 	                         echo "${params.version}"
-				  sh 'mvn compile -Dparams.version=test1'
+				  sh 'mvn compile -Dparams.version="${params.version}"'
 				 // bat 'mvn compile -Dparams.version=%params.version%'
 				  
 	                  }
@@ -25,7 +25,7 @@ pipeline {
 	        }
 	        stage('Test') { 
 	            steps {
-	               sh 'mvn test test1'
+	               sh 'mvn test -Dparams.version=test1'
 			    //bat 'mvn test -Dparams.version=%params.version%' 
 	            }
 	        }

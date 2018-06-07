@@ -36,20 +36,20 @@ pipeline {
 			    sh 'mvn package'
 	            }
 	        }
-		     stage('sonar') { 
-	            steps {
+		   //  stage('sonar') { 
+	            //steps {
 	              // bat 'mvn sonar:sonar -Dmaven.test.skip=true -Dparams.version=%params.version%'
-			   sh 'mvn sonar:sonar'
-	            }
-	        }
+			//   sh 'mvn sonar:sonar'
+	            //}
+	        //}
 		    
 		    
-		     stage('Deploy') { 
-	            steps {
-			    sh 'mvn deploy'
+		  //   stage('Deploy') { 
+	           // steps {
+			//    sh 'mvn deploy'
 	               //bat 'mvn deploy -Dmaven.test.skip=true -Dparams.version=%params.version%' 
-	            }
-	        }
+	           // }
+	        //}
 		    
 		    		    
 		    

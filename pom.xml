@@ -29,7 +29,7 @@
 
   <groupId>maven-org.mybatis</groupId>
   <!--version>${params.version}</version-->
-  <version>maven-6.0.3-SNAPSHOT</version>
+  <version>0.0.3</version>
   <artifactId>maven-jpetstore</artifactId>
   <packaging>war</packaging>
 
